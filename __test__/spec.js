@@ -7,22 +7,24 @@ const DECREMENT = '/DECREMENT';
 
 let incrementToken = pubsub.subscribe(INCREMENT, function(type, val) {
   num += val;
-  console.log(`INCREASED by ${val}, now: num: ${num}`)
 });
 
 let decrementToken = pubsub.subscribe(DECREMENT, function(type, val) {
   num -= val;
-  console.log(`DECREASED by ${val}, now, num: ${num}`);
 });
 
-console.log('===>', pubsub)
+describe('pub/sub pattern test', () => {
+  it('each subscribers subscribes to the according event', () => {
+    pubsub.publish(INCREMENT, 3);
+    expect(num).toBe(3);
+    pubsub.publish(DECREMENT, 1);
+    expect(num).toBe(2);
+  })
 
-pubsub.publish(INCREMENT, 3);
-pubsub.publish(INCREMENT, 5);
-pubsub.publish(DECREMENT, 1);
-pubsub.publish(DECREMENT, 0);
-
-pubsub.removeSubscriber(incrementToken);
-console.log(`Before increment: num is ${num}`);
-pubsub.publish(INCREMENT, 3);
-console.log(`After increment: num is still ${num}`);
+  it('removes subscribers', () => {
+    pubsub.removeSubscriber(incrementToken);
+    pubsub.publish(INCREMENT, 10);
+    // after remove subscriber, it doesn't listen to the according event, so the num is still 2
+    expect(num).toBe(2);
+  })
+});
