@@ -20,6 +20,11 @@ const pubsub = {};
     if (!types[type]) {
       types[type] = [];
     }
+    
+    if (typeof func !== 'function') {
+      throw new Error('The second parameter should be callable. Please pass a function.')    
+    }
+    
     subUuid += 1;
 
     types[type].push({
