@@ -1,0 +1,30 @@
+{
+  "name": "pubsub",
+  "version": "1.0.0",
+  "description": "A JavaScript Implementation of the Pub/Sub Design Pattern",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasyimgit/pubsub.git"
+  },
+  "keywords": [
+    "pub/sub",
+    "subscriber",
+    "publisher",
+    "pattern"
+  ],
+  "author": "Chang Yan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thomasyimgit/pubsub/issues"
+  },
+  "homepage": "https://github.com/thomasyimgit/pubsub#readme",
+  "devDependencies": {
+    "eslint": "^4.7.1",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0"
+  }
+}
