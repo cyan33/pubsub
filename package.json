@@ -1,5 +1,5 @@
 {
-  "name": "pubsub",
+  "name": "@changyan/pubsub",
   "version": "1.0.0",
   "description": "A JavaScript Implementation of the Pub/Sub Design Pattern",
   "main": "index.js",
